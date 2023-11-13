@@ -12,12 +12,12 @@ int main() {
 
     a[0]==b[0]?dp[0][0]=0:dp[0][0]=1;
 
-    for(int i=0;i<al;i++){
+    for(int i=1;i<al;i++){
         if(a[i]==b[0]) dp[i][0]=i;
         else dp[i][0]=dp[i-1][0]+1;
     }
 
-    for(int i=0;i<bl;i++){
+    for(int i=1;i<bl;i++){
         if(a[0]==b[i]) dp[0][i]=i;
         else dp[0][i]=dp[0][i-1]+1;
     }

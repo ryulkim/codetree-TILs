@@ -10,7 +10,7 @@ int main() {
 
     a[0]==b[0]?dp[0][0]=1:dp[0][0]=0;
 
-    for(int i=1;i<al;i++){
+    for(int i=1;i<bl;i++){
         if(a[0]==b[i]){
             dp[0][i]=1;
         }
@@ -19,7 +19,7 @@ int main() {
         }
     }
 
-    for(int i=1;i<bl;i++){
+    for(int i=1;i<al;i++){
         if(a[i]==b[0]) dp[i][0]=1;
         else dp[i][0]=dp[i-1][0];
     }

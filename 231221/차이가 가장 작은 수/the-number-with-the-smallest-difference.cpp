@@ -35,7 +35,7 @@ int main() {
         }
     }
 
-    if(ans==1e11){
+    if(ans==2e9){
         cout<<-1;
     }
     else cout<<ans;

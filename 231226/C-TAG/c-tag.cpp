@@ -4,58 +4,56 @@
 #include <string>
 using namespace std;
 
-struct pair_hash
-{
-    template <class T1, class T2>
-    std::size_t operator () (std::pair<T1, T2> const &pair) const
-    {
-        std::size_t h1 = std::hash<T1>()(pair.first);
-        std::size_t h2 = std::hash<T2>()(pair.second);
- 
-        return h1 ^ h2;
+int n,m;
+unordered_set<string> st;
+vector<string> a;
+vector<string> b;
+
+bool sol(int j, int k, int l){
+    st.clear();
+
+    for(int i=0;i<n;i++){
+        st.insert(to_string(a[i][j])+to_string(a[i][k])+to_string(a[i][l]));
     }
-};
+
+    for(int i=0;i<n;i++){
+        if(st.find(to_string(b[i][j])+to_string(b[i][k])+to_string(b[i][l]))!=st.end()){
+            return false;
+        }
+        //cout<<to_string(j)+to_string(k)+to_string(l)+to_string(i)<<'\n';
+    }
+
+    return true;
+}
 
 int main() {
-    int n,m;
-    vector<string> v;
-    unordered_set<pair<string, string>,pair_hash> st;
     string s;
+    int ans=0;
 
     cin>>n>>m;
 
-    for(int i=0;i<2*n;i++){
+    for(int i=0;i<n;i++){
         cin>>s;
-        v.push_back(s);
+        a.push_back(s);
+    }
+
+    for(int i=0;i<n;i++){
+        cin>>s;
+        b.push_back(s);
     }
 
     for(int j=0;j<m;j++){
         for(int k=j+1;k<m;k++){
             for(int l=k+1;l<m;l++){
-                for(int i=0;i<n;i++){
-                    //cout<<to_string(v[i][j])+to_string(v[i][k])<<'\n';
-                    st.insert({to_string(j)+to_string(k)+to_string(l),to_string(v[i][j])+to_string(v[i][k])+to_string(v[i][l])});
+                if(sol(j,k,l)){
+                    ans++;
                 }
             }
         }
     }
 
-    int ans=0;
     
-    for(int j=0;j<m;j++){
-        for(int k=j+1;k<m;k++){
-            for(int l=k+1;l<m;l++){
-                for(int i=n;i<2*n;i++){
-                    //cout<<v[i][j]<<'\n';
-                    if(st.find({to_string(j)+to_string(k)+to_string(l),to_string(v[i][j])+to_string(v[i][k])+to_string(v[i][l])})!=st.end()){
-                        break;
-                    }
-                    //cout<<to_string(j)+to_string(k)+to_string(l)<<'\n';
-                    if(i==2*n-1) ans++;
-                }
-            }
-        }
-    }
+    
 
     cout<<ans;
     

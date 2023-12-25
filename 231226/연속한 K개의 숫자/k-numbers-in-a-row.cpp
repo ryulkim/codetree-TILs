@@ -19,7 +19,7 @@ int main() {
 
     int m=100004;
 
-    for(int i=1;i<n-k+1;i++){
+    for(int i=1;i<n-k+2;i++){
         //cout<<i+k<<' '<<i<<' '<<arr[i+k]<<' '<<arr[i-1]<<'\n';
         m=min(m, arr[i+k-1]-arr[i-1]);
     }

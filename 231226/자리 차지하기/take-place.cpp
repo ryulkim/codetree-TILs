@@ -17,11 +17,11 @@ int main() {
         cin>>x;
         iter=s.upper_bound(x);
 
-        if(iter!=s.begin()){
-            s.erase(--iter);
-            ans++;
+        if(iter==s.begin()){
+            break;
         }
-
+        s.erase(--iter);
+        ans++;
         
     }
 

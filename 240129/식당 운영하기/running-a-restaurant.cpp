@@ -17,7 +17,7 @@ int main() {
     }
 
     sort(v.begin(), v.end());
-    int ans=0;
+    long long ans=0;
 
     for(int i=0;i<n;i++){
         pq.push(v[i].second);

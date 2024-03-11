@@ -7,7 +7,7 @@ using namespace std;
 int main() {
     int n,x, ans=0;
     vector<int> v;
-    int arr[105]={0,};
+    int arr[1005]={0,};
     cin>>n;
 
     for(int i=0;i<n;i++){

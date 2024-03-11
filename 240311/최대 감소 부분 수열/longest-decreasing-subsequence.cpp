@@ -14,8 +14,6 @@ int main() {
         v.push_back(x);
     }
 
-    arr[0]=1;
-
     for(int i=1;i<n;i++){
         for(int j=0;j<i;j++){
             if(v[i]<v[j]){
@@ -25,7 +23,7 @@ int main() {
         }
     }
 
-    cout<<ans;
+    cout<<ans+1;
 
     return 0;
 }

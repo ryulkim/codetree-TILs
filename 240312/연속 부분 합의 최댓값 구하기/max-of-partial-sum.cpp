@@ -18,7 +18,7 @@ int main() {
     int ans=v[0];
 
     for(int i=1;i<n;i++){
-        dp[i]=max(dp[i-1]+v[i],dp[i]);
+        dp[i]=max(dp[i-1]+v[i],v[i]);
         ans=max(ans,dp[i]);
     }
 

@@ -18,11 +18,10 @@ int main() {
     dp[1][0]=v[1];
     dp[1][1]=v[0]+v[1];
 
-    for(int i=2;i<n;i++){
-        for(int j=0;j<=i;j++){
-            if(j>3) continue;
-            if(j==0) dp[i][j]=dp[i-2][j];
-            else dp[i][j]=max(dp[i-2][j]+v[i], dp[i-1][j-1]+v[i]);
+    for(int i=0;i<n;i++){
+        for(int j=0;j<=3;j++){
+            dp[i+2][j]=max(dp[i][j]+v[i+2],dp[i+2][j]);
+            dp[i+1][j+1]=max(dp[i][j]+v[i+1],dp[i+1][j+1]);
         }
     }
 
@@ -35,6 +34,7 @@ int main() {
 
     ans=max(dp[n-1][0],dp[n-1][1]);
     ans=max(ans,dp[n-1][2]);
+    ans=max(ans,dp[n-1][3]);
 
     cout<<ans;
 

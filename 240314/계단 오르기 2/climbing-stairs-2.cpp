@@ -21,7 +21,7 @@ int main() {
 
     for(int i=0;i<n;i++){
         for(int j=0;j<=i+1;j++){
-            if(i==0&&j==0) continue;
+            if(dp[i][j]==0) continue;
             dp[i+2][j]=max(dp[i][j]+v[i+2],dp[i+2][j]);
             dp[i+1][j+1]=max(dp[i][j]+v[i+1],dp[i+1][j+1]);
         }

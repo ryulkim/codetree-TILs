@@ -15,9 +15,9 @@ int main() {
 
     for(int i=0;i<n;i++){
         int num=arr[i][0];
-        int cnt=1;
+        int cnt=0;
 
-        for(int j=1;j<n;j++){
+        for(int j=0;j<n;j++){
             if(num==arr[i][j]){
                 cnt++;
             }
@@ -36,9 +36,9 @@ int main() {
 
     for(int i=0;i<n;i++){
         int num=arr[0][i];
-        int cnt=1;
+        int cnt=0;
 
-        for(int j=1;j<n;j++){
+        for(int j=0;j<n;j++){
             if(num==arr[j][i]){
                 cnt++;
             }

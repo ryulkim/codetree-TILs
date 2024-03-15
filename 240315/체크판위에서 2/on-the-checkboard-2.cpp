@@ -28,14 +28,17 @@ int main() {
 
     char start=arr[0][0];
 
-    for(int i=0;i<r-2;i++){
-        for(int j=0;j<c-2;j++){
-            if(arr[i][j]!=start){
-                //cout<<i<<' '<<j<<'\n';
-                ans+=proc(i,j, arr[i][j]);
+    if(start!=arr[r-1][c-1]){
+        for(int i=0;i<r-2;i++){
+            for(int j=0;j<c-2;j++){
+                if(arr[i][j]!=start){
+                    //cout<<i<<' '<<j<<'\n';
+                    ans+=proc(i,j, arr[i][j]);
+                }
             }
         }
     }
+    
 
     cout<<ans;
 

@@ -1,45 +1,56 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-bool valid(int y){
-    if(y%4==0){
-        if(y%100==0){
-            if(y%400==0) return 1;
-            return 0;
-        }
-        return 1;
+int k,x;
+string n,s;
+vector<int> v;
+
+string repeat(int c, int len){
+    string s="";
+    for(int i=0;i<len;i++){
+        s+=to_string(c);
     }
-    return 0;
+    return s;
+}
+
+string proc(){
+    int sz=n.size();
+    string s=repeat(v[0],sz);
+    
+    if(s>n){
+        return repeat(v[k-1],sz-1);
+    }
+
+    s="";
+    
+    for(int i=0;i<sz;i++){
+        for(int j=k-1;j>=0;j--){
+            if(s+to_string(v[j])+repeat(v[0],sz-i-1)<=n){
+                s+=to_string(v[j]);
+                break;
+            }
+        }
+    }
+
+    return s;
 }
 
 int main() {
-    int y1,y2,m1,m2,d1,d2;
-    int day[15]={31,28,31,30,31,30,31,31,30,31,30,31};
+    
+    cin>>n>>k;
 
-    cin>>y1>>m1>>d1;
-    cin>>y2>>m2>>d2;
-
-    int d=(y2-y1)*365;
-
-    for(int i=y1;i<y2;i++){
-        if(i%4==0&&valid(i)) d++;
+    for(int i=0;i<k;i++){
+        cin>>x;
+        v.push_back(x);
     }
 
-    for(int i=0;i<m1-1;i++){
-        d-=day[i];
-    }
+    sort(v.begin(), v.end());
 
-    if(m1>2&&valid(y1)) d-=1;
-    d-=(d1-1);
+    cout<<proc();
 
-    for(int i=0;i<m2-1;i++){
-        d+=day[i];
-    }
-
-    if(m2>2&&valid(y2)) d+=1;
-    d+=d2;
-
-    cout<<d;
+    
 
     return 0;
 }

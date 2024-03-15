@@ -29,11 +29,12 @@ int main() {
     char start=arr[0][0];
 
     if(start!=arr[r-1][c-1]){
-        for(int i=0;i<r-2;i++){
-            for(int j=0;j<c-2;j++){
+        for(int i=1;i<r-2;i++){
+            for(int j=1;j<c-2;j++){
                 if(arr[i][j]!=start){
-                    //cout<<i<<' '<<j<<'\n';
+                    
                     ans+=proc(i,j, arr[i][j]);
+                    //cout<<i<<' '<<j<<' '<<ans<<'\n';
                 }
             }
         }

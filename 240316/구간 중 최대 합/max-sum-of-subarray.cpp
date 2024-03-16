@@ -13,11 +13,12 @@ int main() {
         v.push_back(x);
     }
 
-    for(int i=0;i<n-k;i++){
+    for(int i=0;i<=n-k;i++){
         int num=0;
         for(int j=i;j<i+k;j++){
             num+=v[j];
         }
+        //cout<<i<<' '<<num<<'\n';
         ans=max(ans,num);
     }
 

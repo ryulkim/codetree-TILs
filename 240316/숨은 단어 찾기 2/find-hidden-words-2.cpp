@@ -12,7 +12,7 @@ bool valid(int i, int j){
 }
 
 int direct(int d, int i, int j){
-    for(int i=0;i<2;i++){
+    for(int k=0;k<2;k++){
         i+=dr[d];
         j+=dc[d];
         if(!valid(i,j)) return false;
@@ -28,7 +28,6 @@ int proc(){
             if(arr[i][j]!='L') continue;
             for(int k=0;k<8;k++){
                 if(direct(k, i, j)) {
-                    //cout<<i<<' '<<j<<'\n';
                     num++;
                 }
             }

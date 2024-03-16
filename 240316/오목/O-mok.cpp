@@ -13,7 +13,8 @@ bool valid(int i, int j){
 bool direct(int d, int i, int j, int color){
     int num=1;
     for(int k=0;k<4;k++){
-        if(valid(i+dr[d],j+dc[d])&&arr[i+dr[d]][j+dc[d]]!=color){
+        if(!valid(i+dr[d],j+dc[d])) return false;
+        if(arr[i+dr[d]][j+dc[d]]!=color){
             return false;
         }
         i+=dr[d];
@@ -31,6 +32,7 @@ bool proc(int color){
             for(int k=0;k<4;k++){
                 if(direct(k,i,j,color)) {
                     ar=i+dr[k]*2+1; ac=j+dc[k]*2+1;
+                    //ar=i; ac=j;
                     return true;
                 }
             }

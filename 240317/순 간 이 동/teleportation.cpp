@@ -9,7 +9,7 @@ int ans=1e9;
 int main() {
     cin>>a>>b>>x>>y;
     //A->B
-    ans=min(ans, b-a);
+    ans=min(ans, abs(b-a));
     //A->X->Y->B
     ans=min(ans, abs(a-x)+abs(b-y));
     //A->Y->X->B

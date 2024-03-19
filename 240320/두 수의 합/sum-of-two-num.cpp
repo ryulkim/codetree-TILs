@@ -12,19 +12,11 @@ int main() {
     for(int i=0;i<n;i++){
         cin>>x;
         v.push_back(x);
-        u[x]++;
     }
 
     for(int i=0;i<n;i++){
-        if(k-v[i]==v[i]) {
-            ans+=u[k-v[i]]---1;
-        }
-        else{
-            u[v[i]]--;
-            ans+=u[k-v[i]]--;
-        }
-        
-        
+        ans+=u[k-v[i]];
+        u[v[i]]++;
     }
 
     cout<<ans;

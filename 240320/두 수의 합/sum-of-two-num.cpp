@@ -16,8 +16,14 @@ int main() {
     }
 
     for(int i=0;i<n;i++){
-        if(k-v[i]!=v[i]) u[v[i]]--;
-        ans+=u[k-v[i]]--;
+        if(k-v[i]==v[i]) {
+            ans+=u[k-v[i]]---1;
+        }
+        else{
+            u[v[i]]--;
+            ans+=u[k-v[i]]--;
+        }
+        
         
     }
 

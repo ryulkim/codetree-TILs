@@ -5,11 +5,13 @@
 #include <tuple>
 using namespace std;
 
+vector<int> v;
+unordered_map<int,int> u;
+priority_queue<pair<int, int>> q;
+
 int main() {
     int n,k,x,a,b;
-    vector<int> v;
-    unordered_map<int,int> u;
-    priority_queue<pair<int, int>> q;
+    
     cin>>n>>k;
 
     for(int i=0;i<n;i++){
@@ -18,13 +20,18 @@ int main() {
         u[x]++;
     }
 
+    int i=0;
+
     for(auto a: u){
-        if(a.second>=k){
-            q.push({a.second, a.first});
-        }   
+    
+        q.push({a.second, a.first});
+        
     }
 
+    //cout<<q.size()<<'\n';
+
     while(!q.empty()){
+        if(i++==k) break;
         tie(a,b)=q.top();
         q.pop();
         cout<<b<<' ';

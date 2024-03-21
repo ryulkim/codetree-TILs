@@ -36,9 +36,8 @@ int main() {
 
     int vsz=v.size();
 
-    for(int i=0;i<vsz;i++){
-        cout<<v[i]<<' ';
-    }
+    if(vsz==0) cout<<"None";
+    else cout<<v[0];
 
     return 0;
 }

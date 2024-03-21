@@ -2,7 +2,8 @@
 #include <unordered_map>
 using namespace std;
 
-int n,x,y,ans=0;
+int n,x,y;
+long long ans=0;
 unordered_map<int, int> u;
 
 int main() {

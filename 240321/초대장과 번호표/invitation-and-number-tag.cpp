@@ -26,7 +26,7 @@ int main() {
     }
 
     q.push(1);
-    int ans=1;
+    int ans=0;
 
     while(!q.empty()){
         int a=q.front();
@@ -35,7 +35,7 @@ int main() {
         q.pop();
 
         //a가 속한 그룹 탐색
-        for(int i=0;i<a;i++){
+        for(int i=0;i<sz;i++){
             u[v[a][i]].erase(a);
             if(u[v[a][i]].size()==1) q.push(*u[v[a][i]].begin());
         }

@@ -8,6 +8,7 @@ using namespace std;
 
 int n,g,x;
 unordered_set<int> u[GSZ];
+bool invited[NSZ];
 vector<int> v[NSZ];
 queue<int> q;
 
@@ -26,6 +27,7 @@ int main() {
     }
 
     q.push(1);
+    invited[1]=true;
     int ans=0;
 
     while(!q.empty()){
@@ -37,7 +39,15 @@ int main() {
         //a가 속한 그룹 탐색
         for(int i=0;i<sz;i++){
             u[v[a][i]].erase(a);
-            if(u[v[a][i]].size()==1) q.push(*u[v[a][i]].begin());
+            if(u[v[a][i]].size()==1) {
+                int p_num=(*u[v[a][i]].begin());
+                if(!invited[p_num]){
+                    invited[p_num]=true;
+                    q.push(p_num);
+                }
+                
+                
+            }
         }
     }
 

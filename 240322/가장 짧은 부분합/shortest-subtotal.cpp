@@ -17,11 +17,21 @@ int main() {
     int j=-1,sum=0,len=0,ans=1e9;
 
     for(int i=0;i<n;i++){
+        //cout<<i<<' ';
         while(j+1<n&&v[j+1]+sum<=s){
+            j++;
+            //cout<<j<<' ';
             sum+=v[j];
             len++;
-            j++;
+            
         }
+        if(sum<s){
+            j++;
+            sum+=v[j];
+            len++;
+        }
+
+        //cout<<sum<<'\n';
 
         ans=min(ans, len);
         sum-=v[i];

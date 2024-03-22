@@ -14,10 +14,10 @@ int main() {
         v.push_back(x);
     }
 
-    int j=0,sum=0,len=1,ans=1e9;
+    int j=-1,sum=0,len=0,ans=1e9;
 
     for(int i=0;i<n;i++){
-        while(j<n&&v[j]+sum<=s){
+        while(j+1<n&&v[j+1]+sum<=s){
             sum+=v[j];
             len++;
             j++;

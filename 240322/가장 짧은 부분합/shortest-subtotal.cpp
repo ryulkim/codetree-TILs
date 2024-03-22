@@ -27,15 +27,19 @@ int main() {
         }
         if(sum<s&&j+1<n){
             j++;
+            //cout<<j<<' ';
             sum+=v[j];
             len++;
         }
 
-        //cout<<sum<<'\n';
+        //cout<<sum<<' '<<len<<'\n';
 
-        ans=min(ans, len);
-        sum-=v[i];
-        len--;
+        if(sum>=s){
+            ans=min(ans, len);
+            sum-=v[i];
+            len--;
+        }
+        
     }
 
     cout<<ans;

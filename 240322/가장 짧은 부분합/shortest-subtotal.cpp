@@ -25,7 +25,7 @@ int main() {
             len++;
             
         }
-        if(sum<s){
+        if(sum<s&&j+1<n){
             j++;
             sum+=v[j];
             len++;

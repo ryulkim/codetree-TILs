@@ -42,7 +42,7 @@ int main() {
         
     }
     
-    if(ans==0) cout<<-1;
+    if(ans==1e9) cout<<-1;
     else cout<<ans;
     
     return 0;

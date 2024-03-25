@@ -12,9 +12,10 @@ void proc(){
     int psz=pl.size();
     int j=0;
     int sum=abs(mi[0]+pl[0]);
+    ans=sum;
 
     for(int i=0;i<psz;i++){
-        while(j<msz&&sum>abs(pl[i]+mi[j+1])){
+        while(j+1<msz&&sum>abs(pl[i]+mi[j+1])){
             j++;
             ans=min(ans, abs(pl[i]+mi[j]));
         }

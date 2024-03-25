@@ -20,7 +20,7 @@ void proc(){
     int j=2*k;
     
 
-    for(int i=0;i<SZ-2*k;i++){
+    for(int i=0;i<SZ-2*k-5;i++){
         ans=max(ans,sum);
         //cout<<ans<<' ';
 

@@ -7,13 +7,19 @@ int n,k,x,ans=0;
 vector<int> v;
 
 void proc(){
+
+    int j=n-1;
     
     for(int i=0;i<n-1;i++){
         int a=v[i];
-        int j=i;
-        while(j+1<n&&a+v[j+1]<=k){
-            ans++;
-            j++;
+        
+        while(j>i&&a+v[j]>k){
+            j--;
+        }
+
+        if(j>i) {
+            //cout<<j<<'-'<<i<<' ';
+            ans+=j-i;
         }
     }
 }

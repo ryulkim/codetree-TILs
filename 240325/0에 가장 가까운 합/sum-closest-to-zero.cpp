@@ -17,8 +17,9 @@ void proc(){
     for(int i=0;i<psz;i++){
         while(j+1<msz&&sum>abs(pl[i]+mi[j+1])){
             j++;
-            ans=min(ans, abs(pl[i]+mi[j]));
         }
+
+        ans=min(ans, abs(pl[i]+mi[j]));
     }
 }
 

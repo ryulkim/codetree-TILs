@@ -17,7 +17,7 @@ int main() {
 
     sort(v.begin(),v.end());
 
-    for(int i=0;i<n;i++){
+    for(int i=0;i<2*n;i++){
         sum+=v[i].second;
         ans=max(ans,sum);
     }

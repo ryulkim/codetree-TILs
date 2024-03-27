@@ -51,7 +51,7 @@ int main() {
             cnt.erase(idx);
             auto temp2=*st.begin();
 
-            if(!st.empty()&&first!=temp2.first||first==temp2.first&&y==temp2.first) {
+            if(!st.empty()&&first!=temp2.first||first==temp2.first&&second!=temp2.first) {
                 //cout<<x<<' ';
                 if(cnt.find(temp2.second)==cnt.end()) {
                     ans++;

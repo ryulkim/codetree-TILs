@@ -29,14 +29,13 @@ int main() {
         if(a==1){
             auto temp=*st.begin();
             int first=temp.first;
-            st.insert({y,a});
+            st.insert({y,idx});
             auto temp2=*st.begin();
             if(st.empty()||first!=temp2.first) {
                 //cout<<x<<' ';
-                if(cnt.find(idx)==cnt.end()) {
-                    cnt.insert(idx);
-                    ans++;
-                }
+                cnt.insert(idx);
+                ans++;
+                
             }
         }
         else{
@@ -44,12 +43,14 @@ int main() {
             int first=temp.first;
             int second=temp.second;
             auto it=st.find(y);
-
+            cnt.erase(idx);
             st.erase(it);
             auto temp2=*st.begin();
             if(!st.empty()&&first!=temp2.first||first==temp2.first&&y==temp2.first) {
                 //cout<<x<<' ';
-                ans++;
+                if(cnt.find(temp2.second)==cnt.end()) {
+                    ans++;
+                }
             }
         }
     }

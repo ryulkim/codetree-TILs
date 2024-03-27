@@ -1,12 +1,12 @@
 #include <iostream>
-#include <set>
+#include <map>
 #include <vector>
 #include <tuple>
 #include <algorithm>
 
 using namespace std;
 
-set<int> st;
+multimap<int,int> st;
 vector<tuple<int, int, int>> v;
 int n,x1,x2,x,y,a,ans=0;
 
@@ -25,17 +25,24 @@ int main() {
     for(int i=0;i<2*n;i++){
         tie(x,y,a)=v[i];
         if(a==1){
-            int first=*st.begin();
-            st.insert(y);
-            if(!st.empty()&&first!=*st.begin()) {
+            auto temp=*st.begin();
+            int first=temp.first;
+            st.insert({y,a});
+            auto temp2=*st.begin();
+            if(st.empty()||first!=temp2.first) {
                 //cout<<x<<' ';
                 ans++;
             }
         }
         else{
-            int first=*st.begin();
-            st.erase(y);
-            if(!st.empty()&&first!=*st.begin()) {
+            auto temp=*st.begin();
+            int first=temp.first;
+            int second=temp.second;
+            auto it=st.find(y);
+
+            st.erase(it);
+            auto temp2=*st.begin();
+            if(!st.empty()&&first!=temp2.first||first==temp2.first&&y==temp2.first) {
                 //cout<<x<<' ';
                 ans++;
             }

@@ -42,10 +42,15 @@ int main() {
             auto temp=*st.begin();
             int first=temp.first;
             int second=temp.second;
-            auto it=st.find(y);
+            for(auto it=st.lower_bound(y); it!=st.upper_bound(y);it++){
+                if((*it).second==idx) {
+                    st.erase(it);
+                    break;
+                }
+            }
             cnt.erase(idx);
-            st.erase(it);
             auto temp2=*st.begin();
+
             if(!st.empty()&&first!=temp2.first||first==temp2.first&&y==temp2.first) {
                 //cout<<x<<' ';
                 if(cnt.find(temp2.second)==cnt.end()) {

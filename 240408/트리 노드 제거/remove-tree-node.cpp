@@ -19,7 +19,7 @@ void bfs(int st){
         int sz=v[a].size();
         q.pop();
         
-        if(sz==0) ans++;
+        if(a!=0&&sz==0) ans++;
 
         for(int i=0;i<sz;i++){
             int b=v[a][i];
@@ -34,7 +34,7 @@ void bfs(int st){
 int main() {
     cin>>n;
 
-    for(int i=0;i<n-1;i++){
+    for(int i=0;i<n;i++){
         cin>>x;
         if(x==-1) continue;
         v[i].push_back(x);

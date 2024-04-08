@@ -7,7 +7,7 @@ using namespace std;
 int n,x,ans=0, st;
 vector<int> v[SZ];
 bool visit[SZ];
-
+int par[SZ];
 
 void bfs(int st){
     queue<int> q;
@@ -19,7 +19,7 @@ void bfs(int st){
         int sz=v[a].size();
         q.pop();
         //cout<<a<<' ';
-        if(a!=0&&sz==0&&a!=x) {
+        if(a!=st&&sz==0&&a!=x) {
             //cout<<a<<' ';
             ans++;
         }
@@ -39,16 +39,27 @@ int main() {
 
     for(int i=0;i<n;i++){
         cin>>x;
+        par[i]=x;
+
         if(x==-1) {
             st=i;
             continue;
         }
-        //v[i].push_back(x);
+
         v[x].push_back(i);
     }
 
     cin>>x;
     v[x].clear();
+    int p=par[x];
+    int sz=v[p].size();
+
+    for(int i=0;i<sz;i++){
+        if(v[par[x]][i]==x){
+            v[par[x]].erase(v[par[x]].begin()+i);
+            break;
+        }
+    }
 
     bfs(st);
 

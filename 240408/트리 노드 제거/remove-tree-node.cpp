@@ -4,7 +4,7 @@
 #define SZ 55
 using namespace std;
 
-int n,x,ans=0;
+int n,x,ans=0, st;
 vector<int> v[SZ];
 bool visit[SZ];
 
@@ -18,8 +18,11 @@ void bfs(int st){
         int a=q.front();
         int sz=v[a].size();
         q.pop();
-        
-        if(a!=0&&sz==0) ans++;
+        //cout<<a<<' ';
+        if(a!=0&&sz==0&&a!=x) {
+            //cout<<a<<' ';
+            ans++;
+        }
 
         for(int i=0;i<sz;i++){
             int b=v[a][i];
@@ -36,15 +39,18 @@ int main() {
 
     for(int i=0;i<n;i++){
         cin>>x;
-        if(x==-1) continue;
-        v[i].push_back(x);
+        if(x==-1) {
+            st=i;
+            continue;
+        }
+        //v[i].push_back(x);
         v[x].push_back(i);
     }
 
     cin>>x;
     v[x].clear();
 
-    bfs(0);
+    bfs(st);
 
     cout<<ans;
 

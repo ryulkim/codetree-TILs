@@ -32,6 +32,7 @@ bool proc(){
 
         for(int i=0;i<sz;i++){
             int b=v[a][i];
+            if(visit[b]) return 0;
             if(!visit[b]){
                 visit[b]=1;
                 q.push(b);
@@ -40,7 +41,7 @@ bool proc(){
         }
     }
 
-    //cout<<num;
+    //cout<<num<<total;
     if(num==total) return 1;
     return 0;
 }

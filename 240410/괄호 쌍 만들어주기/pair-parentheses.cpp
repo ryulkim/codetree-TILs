@@ -2,9 +2,9 @@
 #include <vector>
 using namespace std;
 
-int arr[100005];
+long long arr[100005];
 string s;
-int ans=0;
+long long ans=0;
 
 int main() {
     

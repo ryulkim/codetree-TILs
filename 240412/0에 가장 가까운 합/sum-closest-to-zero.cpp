@@ -5,7 +5,7 @@
 using namespace std;
 
 int n,x;
-long long ans=1e9;
+long long ans=1e10;
 vector<long long> v;
 
 int main() {

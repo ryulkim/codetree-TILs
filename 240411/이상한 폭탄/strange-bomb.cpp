@@ -4,7 +4,7 @@
 #include <algorithm>
 using namespace std;
 
-int n,k,x,ans=0;
+int n,k,x,ans=-1;
 unordered_map<int,int> u;
 vector<int> v;
 int process[200005];

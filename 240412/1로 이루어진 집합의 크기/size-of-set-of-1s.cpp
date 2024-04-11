@@ -80,23 +80,22 @@ int main() {
         tie(i,j)=zero[a];
         bool check[250000]={0,};
         int sum=1;
-        if(arr[i][j]==0){
-            for(int k=0;k<4;k++){
-                int na=dr[k]+i;
-                int nb=dc[k]+j;
 
-                if(!valid(na,nb)||!arr[na][nb]||check[visit[na][na]]) continue;
+        for(int k=0;k<4;k++){
+            int na=dr[k]+i;
+            int nb=dc[k]+j;
 
-                if(!check[visit[na][nb]]){
-                    //cout<<sum<<' '<<"gz"<<' '<<group_size[visit[na][nb]]<<'\n';
-                    sum+=group_size[visit[na][nb]];
-                    
-                    check[visit[na][nb]]=1;
-                }
+            if(!valid(na,nb)||!arr[na][nb]||check[visit[na][na]]) continue;
+
+            if(!check[visit[na][nb]]){
+                //cout<<sum<<' '<<"gz"<<' '<<group_size[visit[na][nb]]<<'\n';
+                sum+=group_size[visit[na][nb]];
+                
+                check[visit[na][nb]]=1;
             }
-            //cout<<"a: "<<i<<' '<<j<<' '<<sum<<'\n';
-            ans=max(ans,sum);
         }
+
+        ans=max(ans,sum);
     }
 
 

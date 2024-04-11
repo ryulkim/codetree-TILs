@@ -85,7 +85,8 @@ int main() {
             int na=dr[k]+i;
             int nb=dc[k]+j;
 
-            if(!valid(na,nb)||!arr[na][nb]||check[visit[na][na]]) continue;
+            if(!valid(na,nb)||!arr[na][nb]||check[visit[na][nb]]) continue;
+            int g=visit[na][nb];
 
             sum+=group_size[visit[na][nb]];
                 

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <vector>
 #include <tuple>
 using namespace std;
 
@@ -9,6 +10,7 @@ int visit[505][505];
 int dr[5]={0,0,1,-1};
 int dc[5]={1,-1,0,0};
 queue<pair<int,int>> q;
+vector<pair<int,int>> zero;
 int group=1;
 int group_size[250005];
 
@@ -51,6 +53,8 @@ int main() {
     for(int i=0;i<n;i++){
         for(int j=0;j<m;j++){
             cin>>arr[i][j];
+
+            if(arr[i][j]==0) zero.push_back({i,j});
         }
     }
 
@@ -70,27 +74,28 @@ int main() {
     //     cout<<'\n';
     // }
 
-    for(int i=0;i<n;i++){
-        for(int j=0;j<m;j++){
-            bool check[250000]={0,};
-            int sum=1;
-            if(arr[i][j]==0){
-                for(int k=0;k<4;k++){
-                    int na=dr[k]+i;
-                    int nb=dc[k]+j;
+    int i,j;
 
-                    if(!valid(na,nb)||!arr[na][nb]||check[visit[na][na]]) continue;
+    for(int a=0;a<zero.size();a++){
+        tie(i,j)=zero[a];
+        bool check[250000]={0,};
+        int sum=1;
+        if(arr[i][j]==0){
+            for(int k=0;k<4;k++){
+                int na=dr[k]+i;
+                int nb=dc[k]+j;
 
-                    if(!check[visit[na][nb]]){
-                        //cout<<sum<<' '<<"gz"<<' '<<group_size[visit[na][nb]]<<'\n';
-                        sum+=group_size[visit[na][nb]];
-                        
-                        check[visit[na][nb]]=1;
-                    }
+                if(!valid(na,nb)||!arr[na][nb]||check[visit[na][na]]) continue;
+
+                if(!check[visit[na][nb]]){
+                    //cout<<sum<<' '<<"gz"<<' '<<group_size[visit[na][nb]]<<'\n';
+                    sum+=group_size[visit[na][nb]];
+                    
+                    check[visit[na][nb]]=1;
                 }
-                //cout<<"a: "<<i<<' '<<j<<' '<<sum<<'\n';
-                ans=max(ans,sum);
             }
+            //cout<<"a: "<<i<<' '<<j<<' '<<sum<<'\n';
+            ans=max(ans,sum);
         }
     }
 

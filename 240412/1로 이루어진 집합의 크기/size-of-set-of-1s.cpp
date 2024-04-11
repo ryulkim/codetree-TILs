@@ -72,8 +72,8 @@ int main() {
 
     for(int i=0;i<n;i++){
         bool check[250000]={0,};
-        int sum=1;
         for(int j=0;j<m;j++){
+            int sum=1;
             if(arr[i][j]==0){
                 for(int k=0;k<4;k++){
                     int na=dr[k]+i;
@@ -82,7 +82,9 @@ int main() {
                     if(!valid(na,nb)||!arr[na][nb]||check[visit[na][na]]) continue;
 
                     if(!check[visit[na][nb]]){
+                        //cout<<sum<<' '<<"gz"<<' '<<group_size[visit[na][nb]]<<'\n';
                         sum+=group_size[visit[na][nb]];
+                        
                         check[visit[na][nb]]=1;
                     }
                 }

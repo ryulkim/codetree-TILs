@@ -7,7 +7,6 @@ using namespace std;
 int n,k,x,ans=-1;
 unordered_map<int,int> u;
 vector<int> v;
-int process[200005];
 
 int main() {
     cin>>n>>k;
@@ -20,7 +19,6 @@ int main() {
     for(int i=n-1;i>=0;i--){
         if(u.find(v[i])==u.end()){
             u[v[i]]=i;
-            process[v[i]]=-1;
         }
         else{
             if(u[v[i]]-i<=k) ans=max(ans, v[i]);

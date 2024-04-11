@@ -18,20 +18,14 @@ int main() {
 
     int end=n-1;
     for(int i=0;i<end;i++){
-        if(ans>abs(v[i]+v[end])){
-            ans=abs(v[i]+v[end]);
-            a=v[i];
-            b=v[end];
-            //cout<<a<<' '<<b<<'\n';
-        }
         while(1){
-            if(abs(v[i])>abs(v[end])) break;
             if(ans>abs(v[i]+v[end])){
                 ans=abs(v[i]+v[end]);
                 a=v[i];
                 b=v[end];
             }
-            end--;
+            if(end-1>i&&abs(v[i])<abs(v[end])) end--;
+            else break;
 
         }
         

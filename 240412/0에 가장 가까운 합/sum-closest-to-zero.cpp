@@ -22,7 +22,7 @@ int main() {
     for(int i=0;i<end;i++){
         while(1){
             ans=min(ans,abs(v[i]+v[end]));
-            if(ans>v[i]+v[end-1]) end--;
+            if(end-1>i&&ans>v[i]+v[end-1]) end--;
             else break;
         }
     }

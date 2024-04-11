@@ -46,41 +46,11 @@ int main() {
         int ai=stringtoInt[a];
         int fi=stringtoInt[f];
 
-        if(a<f){
-            if(v[ai].size()==0){
-                v[ai].push_back(fi);
-                indegree[fi]++;
-            }
-            else if(v[ai].size()>0&&fi<v[ai][0]) {
-                v[fi].push_back(ai);
-                indegree[ai]++;
-            }
-            else{
-                v[v[ai][0]].push_back(ai);
-                indegree[v[ai][0]]--;
-                v[ai][0]=fi;
-                indegree[fi]++;
-                indegree[ai]++;
-            }
-            
-        }
-        else{
-            if(v[fi].size()==0){
-                v[fi].push_back(ai);
-                indegree[ai]++;
-            }
-            else if(v[fi].size()>0&&ai<v[fi][0]) {
-                v[ai].push_back(fi);
-                indegree[fi]++;
-            }
-            else{
-                v[v[fi][0]].push_back(fi);
-                indegree[v[fi][0]]--;
-                v[fi][0]=fi;
-                indegree[fi]++;
-                indegree[ai]++;
-            }
-        }
+        v[ai].push_back(fi);
+        v[fi].push_back(ai);
+
+        indegree[ai]++;
+        indegree[fi]++;
     }
 
     // for(int i=0;i<8;i++){
@@ -89,7 +59,7 @@ int main() {
     // cout<<'\n';
 
     for(int i=0;i<8;i++){
-        if(indegree[i]) continue;
+        if(indegree[i]>1||indegree[i]<0) continue;
         
         q.push(i);
         //cout<<"a: "<<i<<'\n';
@@ -101,10 +71,12 @@ int main() {
             int sz=v[a].size();
             cout<<intToString[a]<<'\n';
 
+            sort(v[a].begin(),v[a].end());
+
             for(int j=0;j<sz;j++){
                 //cout<<v[a][j]<<'\n';
                 indegree[v[a][j]]--;
-                if(!indegree[v[a][j]]) q.push(v[a][j]);
+                if(indegree[v[a][j]]<2&&indegree[v[a][j]]>=0) q.push(v[a][j]);
             }
         }
 

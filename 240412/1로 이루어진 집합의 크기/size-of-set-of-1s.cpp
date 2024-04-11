@@ -78,7 +78,7 @@ int main() {
 
     for(int a=0;a<zero.size();a++){
         tie(i,j)=zero[a];
-        bool check[250000]={0,};
+        bool check[250005]={0,};
         int sum=1;
 
         for(int k=0;k<4;k++){
@@ -87,18 +87,13 @@ int main() {
 
             if(!valid(na,nb)||!arr[na][nb]||check[visit[na][na]]) continue;
 
-            if(!check[visit[na][nb]]){
-                //cout<<sum<<' '<<"gz"<<' '<<group_size[visit[na][nb]]<<'\n';
-                sum+=group_size[visit[na][nb]];
+            sum+=group_size[visit[na][nb]];
                 
-                check[visit[na][nb]]=1;
-            }
+            check[visit[na][nb]]=1;
         }
 
         ans=max(ans,sum);
     }
-
-
 
     cout<<ans;
 

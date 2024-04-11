@@ -71,8 +71,8 @@ int main() {
     // }
 
     for(int i=0;i<n;i++){
-        bool check[250000]={0,};
         for(int j=0;j<m;j++){
+            bool check[250000]={0,};
             int sum=1;
             if(arr[i][j]==0){
                 for(int k=0;k<4;k++){

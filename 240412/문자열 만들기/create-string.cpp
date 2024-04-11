@@ -8,9 +8,7 @@ int main() {
 
     cin>>n>>s;
 
-    int sz=s.size();
-
-    int end=sz-1;
+    int end=n-1;
     for(int i=0;i<end;i++){
         while(1){
             if(s[i]<s[end]) {

@@ -4,8 +4,8 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc=new Scanner(System.in);
 
-        char c=sc.nextCharAt();
+        String c=sc.next();
 
-        System.out.print(c);
+        System.out.print(c.charAt(0));
     }
 }

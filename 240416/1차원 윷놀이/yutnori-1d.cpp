@@ -11,7 +11,7 @@ void proc(int l){
     if(l==n){
         int temp=0;
         for(int i=1;i<=k;i++){
-            if(arr[i]>=m) temp++;
+            if(arr[i]>=m-1) temp++;
         }
         ans=max(ans,temp);
         return;

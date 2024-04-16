@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-int n,m,k,x,ans=0,temp=0;
+int n,m,k,x,ans=0;
 vector<int> v;
 int arr[20];
 
@@ -19,8 +19,9 @@ void proc(int l){
 
     for(int i=1;i<=k;i++){
         arr[i]+=v[l];
+        //cout<<l<<": "<<i<<' '<<arr[i]<<'\n';
         proc(l+1);
-        arr[i]-=v[i];
+        arr[i]-=v[l];
     }
 }
 

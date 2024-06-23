@@ -10,7 +10,7 @@ public class Main {
             System.out.println(a*b);
         }
         else{
-            System.out.println(b%a);
+            System.out.println(b/a);
         }
     }
 }
